@@ -59,6 +59,7 @@
 		0B7647281DB27A73003D5304 /* ProfileStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileStore.m; sourceTree = "<group>"; };
 		0B76472A1DB2821B003D5304 /* PostProile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostProile.h; sourceTree = "<group>"; };
 		0B76472B1DB2821B003D5304 /* PostProile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostProile.m; sourceTree = "<group>"; };
+		0B76472D1DB2E32E003D5304 /* SocialtopiasDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SocialtopiasDemo.entitlements; sourceTree = "<group>"; };
 		23A4F66E3657915F86C155FB /* Pods-SocialtopiasDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialtopiasDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialtopiasDemo/Pods-SocialtopiasDemo.release.xcconfig"; sourceTree = "<group>"; };
 		744DC885B1A273786C7988E2 /* Pods-SocialtopiasDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialtopiasDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialtopiasDemo/Pods-SocialtopiasDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		CAD0751F7096C36AB2EDDC13 /* Pods_SocialtopiasDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialtopiasDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +107,7 @@
 		0B7646EF1DB1AFC4003D5304 /* SocialtopiasDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0B76472D1DB2E32E003D5304 /* SocialtopiasDemo.entitlements */,
 				0B7647211DB1C776003D5304 /* Model */,
 				0B7647151DB1AFD5003D5304 /* AppGlobal */,
 				0B7647161DB1AFE1003D5304 /* Controller */,
@@ -248,7 +250,13 @@
 				TargetAttributes = {
 					0B7646EC1DB1AFC4003D5304 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Z9GGFL7AD3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					0B7647051DB1AFC4003D5304 = {
 						CreatedOnToolsVersion = 8.0;
@@ -495,6 +503,8 @@
 			baseConfigurationReference = 744DC885B1A273786C7988E2 /* Pods-SocialtopiasDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SocialtopiasDemo/SocialtopiasDemo.entitlements;
+				DEVELOPMENT_TEAM = Z9GGFL7AD3;
 				INFOPLIST_FILE = SocialtopiasDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SocialtopiasDemo.myApp;
@@ -507,6 +517,8 @@
 			baseConfigurationReference = 23A4F66E3657915F86C155FB /* Pods-SocialtopiasDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SocialtopiasDemo/SocialtopiasDemo.entitlements;
+				DEVELOPMENT_TEAM = Z9GGFL7AD3;
 				INFOPLIST_FILE = SocialtopiasDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SocialtopiasDemo.myApp;

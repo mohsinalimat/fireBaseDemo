@@ -7,12 +7,15 @@
 //
 
 #import "HomeViewController.h"
+#import "Profile.h"
+#import "PostProile.h"
+@import Firebase;
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *filterView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTopContraint;
+@property (strong, nonatomic) FIRDatabaseReference *ref;
 
 @end
 
@@ -29,6 +32,16 @@ BOOL showFilterOptions = NO;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)setUp{
+    UIImage *image = [[UIImage alloc]initWithContentsOfFile:@"Test"];
+    Profile *example = [[Profile alloc]initWithName:@"Joe Smith" iD:12 isFemale:YES age:28 profileImage:image hobbies:@"Some Hobbies"];
+    
+    PostProile *post = [[PostProile alloc]initWithDatabaseReference:_ref];
+//    [post postProfile:example];
+    [[_ref childByAutoId]setValue:@"testing"];
+
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 10;
@@ -49,6 +62,7 @@ BOOL showFilterOptions = NO;
     if (showFilterOptions == NO){
         [self setFilterSelected];
         showFilterOptions = YES;
+        [self setUp];
     }else{
         [self setFilterNotSelected];
         showFilterOptions = NO;
