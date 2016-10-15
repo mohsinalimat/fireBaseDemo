@@ -11,11 +11,13 @@
 
 @interface Profile : NSObject
 
-@property int *ID;
-@property BOOL gender;
-@property NSString *name;
-@property int *age;
-@property UIImage *profileImage;
-@property NSString *hobbies;
+@property (strong, nonatomic)NSString *name;
+@property (nonatomic)int iD;
+@property (nonatomic)BOOL isFemale;
+@property (nonatomic)int age;
+@property (strong, nonatomic)UIImage *profileImage;
+@property (strong, nonatomic)NSString *hobbies;
+
+-(instancetype)initWithName: (NSString*)name iD:(int)iD isFemale:(BOOL)isFemale age:(int)age profileImage:(UIImage*)profileImage hobbies:(NSString*)hobbies;
 
 @end

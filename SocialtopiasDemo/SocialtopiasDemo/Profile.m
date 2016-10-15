@@ -10,4 +10,19 @@
 
 @implementation Profile
 
+
+-(instancetype)initWithName: (NSString*)name iD:(int)iD isFemale:(BOOL)isFemale age:(int)age profileImage:(UIImage*)profileImage hobbies:(NSString*)hobbies{
+    
+    if (self == [super init]){
+        self.name = name;
+        self.iD = iD;
+        self.isFemale = isFemale;
+        self.age = age;
+        self.profileImage = profileImage;
+        self.hobbies = hobbies;
+    }
+    
+    return self;
+}
+
 @end

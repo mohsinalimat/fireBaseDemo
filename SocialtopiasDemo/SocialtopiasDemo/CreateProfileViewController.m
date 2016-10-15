@@ -9,6 +9,7 @@
 #import "CreateProfileViewController.h"
 
 @interface CreateProfileViewController ()
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *ageTextfield;
