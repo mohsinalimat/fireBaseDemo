@@ -17,6 +17,8 @@
 		0B7647191DB1B1D4003D5304 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B7647181DB1B1D4003D5304 /* GoogleService-Info.plist */; };
 		0B76471A1DB1B1D4003D5304 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B7647181DB1B1D4003D5304 /* GoogleService-Info.plist */; };
 		0B76471D1DB1C34B003D5304 /* CreateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B76471C1DB1C34B003D5304 /* CreateProfileViewController.m */; };
+		0B7647201DB1C548003D5304 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B76471F1DB1C548003D5304 /* DetailViewController.m */; };
+		0B7647261DB1C7BD003D5304 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7647251DB1C7BD003D5304 /* Profile.m */; };
 		67469762E0442C85C0F3FDBA /* Pods_SocialtopiasDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0751F7096C36AB2EDDC13 /* Pods_SocialtopiasDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,10 @@
 		0B7647181DB1B1D4003D5304 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0B76471B1DB1C34B003D5304 /* CreateProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateProfileViewController.h; sourceTree = "<group>"; };
 		0B76471C1DB1C34B003D5304 /* CreateProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateProfileViewController.m; sourceTree = "<group>"; };
+		0B76471E1DB1C548003D5304 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		0B76471F1DB1C548003D5304 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		0B7647241DB1C7BD003D5304 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		0B7647251DB1C7BD003D5304 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 		23A4F66E3657915F86C155FB /* Pods-SocialtopiasDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialtopiasDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialtopiasDemo/Pods-SocialtopiasDemo.release.xcconfig"; sourceTree = "<group>"; };
 		744DC885B1A273786C7988E2 /* Pods-SocialtopiasDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialtopiasDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialtopiasDemo/Pods-SocialtopiasDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		CAD0751F7096C36AB2EDDC13 /* Pods_SocialtopiasDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialtopiasDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +100,7 @@
 		0B7646EF1DB1AFC4003D5304 /* SocialtopiasDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0B7647211DB1C776003D5304 /* Model */,
 				0B7647151DB1AFD5003D5304 /* AppGlobal */,
 				0B7647161DB1AFE1003D5304 /* Controller */,
 				0B7647171DB1AFEF003D5304 /* Storyboard */,
@@ -138,6 +145,8 @@
 				0B7646F71DB1AFC4003D5304 /* HomeViewController.m */,
 				0B76471B1DB1C34B003D5304 /* CreateProfileViewController.h */,
 				0B76471C1DB1C34B003D5304 /* CreateProfileViewController.m */,
+				0B76471E1DB1C548003D5304 /* DetailViewController.h */,
+				0B76471F1DB1C548003D5304 /* DetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -149,6 +158,15 @@
 				0B7646FE1DB1AFC4003D5304 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		0B7647211DB1C776003D5304 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0B7647241DB1C7BD003D5304 /* Profile.h */,
+				0B7647251DB1C7BD003D5304 /* Profile.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		4E71BC419D9C77A786EFB3B3 /* Frameworks */ = {
@@ -323,8 +341,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B7647201DB1C548003D5304 /* DetailViewController.m in Sources */,
 				0B76471D1DB1C34B003D5304 /* CreateProfileViewController.m in Sources */,
 				0B7646F81DB1AFC4003D5304 /* HomeViewController.m in Sources */,
+				0B7647261DB1C7BD003D5304 /* Profile.m in Sources */,
 				0B7646F51DB1AFC4003D5304 /* AppDelegate.m in Sources */,
 				0B7646F21DB1AFC4003D5304 /* main.m in Sources */,
 			);

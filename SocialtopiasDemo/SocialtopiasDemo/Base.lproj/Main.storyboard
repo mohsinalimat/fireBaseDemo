@@ -30,13 +30,16 @@
                                 <color key="backgroundColor" red="0.82545854054164169" green="0.96070536814302498" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.36647285502795712" blue="0.86725970684698284" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="PzX-96-oZr">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileIdentifier" id="PzX-96-oZr">
                                         <rect key="frame" x="0.0" y="28" width="383" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PzX-96-oZr" id="e4q-BJ-0Jc">
                                             <frame key="frameInset" width="383" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="eKQ-pm-qAH" kind="showDetail" identifier="showDetail" id="ehW-tW-T8u"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -60,13 +63,40 @@
                                     <segue destination="Mkx-n2-M1A" kind="presentation" id="pHv-fc-pAk"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Filter" id="1E5-tQ-27F"/>
+                            <barButtonItem title="Filter" id="1E5-tQ-27F">
+                                <connections>
+                                    <action selector="showFilterOptions:" destination="BYZ-38-t0r" id="5lg-dp-KLK"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="filterView" destination="s0s-hc-PPk" id="Zsg-OE-taA"/>
+                        <outlet property="tableView" destination="E09-CU-JOZ" id="pKC-Gd-m4K"/>
+                        <outlet property="tableViewTopContraint" destination="cTY-tc-vGQ" id="Xuc-SB-0Mw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="107.49625187406298"/>
+            <point key="canvasLocation" x="924" y="761"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="BTY-Ax-3TJ">
+            <objects>
+                <viewController id="eKQ-pm-qAH" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mmS-CE-NkJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="fJz-sO-Izb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="otx-xz-0Ab">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DyU-K8-aBy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1705" y="761"/>
         </scene>
         <!--Create Profile View Controller-->
         <scene sceneID="JQn-Rt-Iht">
@@ -84,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lgw-eG-kDq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1706" y="-510"/>
+            <point key="canvasLocation" x="1705" y="-73"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gwE-82-iiI">
