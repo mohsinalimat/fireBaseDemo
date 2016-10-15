@@ -14,12 +14,16 @@
 @property (weak, nonatomic) IBOutlet UIView *filterView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTopContraint;
 
+
 @end
 
 @implementation HomeViewController
 
+BOOL showFilterOptions = NO;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setFilterNotSelected];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -43,6 +47,23 @@
 }
 
 - (IBAction)showFilterOptions:(id)sender {
+    if (showFilterOptions == NO){
+        [self setFilterSelected];
+        showFilterOptions = YES;
+    }else{
+        [self setFilterNotSelected];
+        showFilterOptions = NO;
+    }
+}
+
+-(void)setFilterSelected{
+    _filterView.hidden = NO;
+    _tableViewTopContraint.constant = 120.0;
+}
+
+-(void)setFilterNotSelected{
+    _filterView.hidden = YES;
+    _tableViewTopContraint.constant = 0;
 }
 
 
