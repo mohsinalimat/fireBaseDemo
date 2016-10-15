@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *filterView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTopContraint;
@@ -30,9 +31,16 @@
     return 10;
 }
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    
-//}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"profileIdentifier"];
+    cell.backgroundColor = [UIColor redColor];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self performSegueWithIdentifier:@"showDetail" sender:self];
+}
 
 - (IBAction)showFilterOptions:(id)sender {
 }

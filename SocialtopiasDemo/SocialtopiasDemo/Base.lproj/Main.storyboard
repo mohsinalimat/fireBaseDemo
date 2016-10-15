@@ -37,11 +37,12 @@
                                             <frame key="frameInset" width="383" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="eKQ-pm-qAH" kind="showDetail" identifier="showDetail" id="ehW-tW-T8u"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Ja6-sK-D8W"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="XgO-OP-g2q"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.39803871451718176" green="0.6787041925553039" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -74,6 +75,7 @@
                         <outlet property="filterView" destination="s0s-hc-PPk" id="Zsg-OE-taA"/>
                         <outlet property="tableView" destination="E09-CU-JOZ" id="pKC-Gd-m4K"/>
                         <outlet property="tableViewTopContraint" destination="cTY-tc-vGQ" id="Xuc-SB-0Mw"/>
+                        <segue destination="eKQ-pm-qAH" kind="show" identifier="showDetail" id="o8u-ig-NLX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
