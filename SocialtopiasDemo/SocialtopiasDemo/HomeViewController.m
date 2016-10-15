@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIView *filterView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTopContraint;
 
-
 @end
 
 @implementation HomeViewController

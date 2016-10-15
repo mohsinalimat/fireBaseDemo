@@ -36,6 +36,12 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PzX-96-oZr" id="e4q-BJ-0Jc">
                                             <frame key="frameInset" width="383" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ueC-UD-gUz">
+                                                    <frame key="frameInset" minX="-72" minY="-48" width="240" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -82,10 +88,10 @@
             </objects>
             <point key="canvasLocation" x="924" y="761"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Profile Detail View Controller-->
         <scene sceneID="BTY-Ax-3TJ">
             <objects>
-                <viewController id="eKQ-pm-qAH" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController id="eKQ-pm-qAH" customClass="ProfileDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mmS-CE-NkJ"/>
                         <viewControllerLayoutGuide type="bottom" id="fJz-sO-Izb"/>
@@ -93,8 +99,87 @@
                     <view key="view" contentMode="scaleToFill" id="otx-xz-0Ab">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GA1-Ip-NqW">
+                                <color key="backgroundColor" red="0.77649929094461412" green="0.4524544466634276" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="E9D-do-Xig"/>
+                                    <constraint firstAttribute="width" constant="100" id="moG-DJ-HTR"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2b4-hh-LeW">
+                                <color key="backgroundColor" red="0.50068905624090676" green="0.91097299469124193" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1eq-sg-Vpy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Att-cT-9AW">
+                                <color key="backgroundColor" red="0.5868870481195716" green="0.77968977143909179" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="uvb-qg-KLy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hobbies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUz-w0-9Ef">
+                                <color key="backgroundColor" red="0.75789235944926836" green="0.90559183693672285" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="AAt-d7-x31"/>
+                                    <constraint firstAttribute="width" constant="100" id="dpN-do-VwA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCV-6q-Ls5">
+                                <color key="backgroundColor" red="0.88775614959551952" green="0.87793334931910905" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RwC-mG-bJd"/>
+                                    <constraint firstAttribute="width" constant="50" id="tk8-ca-fSo"/>
+                                </constraints>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="editHobbies:" destination="eKQ-pm-qAH" eventType="touchUpInside" id="yMP-a4-NK1"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="des-Rn-kcB">
+                                <color key="backgroundColor" red="0.4481601290574001" green="0.5844811688180791" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="yz5-Kt-9n9"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GA1-Ip-NqW" firstAttribute="top" secondItem="mmS-CE-NkJ" secondAttribute="bottom" constant="20" id="7w0-X1-U2F"/>
+                            <constraint firstItem="OCV-6q-Ls5" firstAttribute="leading" secondItem="tUz-w0-9Ef" secondAttribute="trailing" constant="8" id="8el-P8-uDP"/>
+                            <constraint firstItem="2b4-hh-LeW" firstAttribute="leading" secondItem="otx-xz-0Ab" secondAttribute="leadingMargin" constant="20" id="H8b-L9-1Qr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2b4-hh-LeW" secondAttribute="trailing" constant="20" id="KKa-IM-2dh"/>
+                            <constraint firstItem="OCV-6q-Ls5" firstAttribute="centerY" secondItem="tUz-w0-9Ef" secondAttribute="centerY" id="Psj-tn-sBY"/>
+                            <constraint firstItem="des-Rn-kcB" firstAttribute="top" secondItem="OCV-6q-Ls5" secondAttribute="bottom" constant="8" id="TAb-yN-BEv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Att-cT-9AW" secondAttribute="trailing" constant="20" id="aRG-VA-6U5"/>
+                            <constraint firstItem="des-Rn-kcB" firstAttribute="leading" secondItem="otx-xz-0Ab" secondAttribute="leadingMargin" constant="20" id="d4Y-uY-tUm"/>
+                            <constraint firstItem="GA1-Ip-NqW" firstAttribute="leading" secondItem="otx-xz-0Ab" secondAttribute="leading" constant="35" id="dSK-eC-Azc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="des-Rn-kcB" secondAttribute="trailing" constant="20" id="dly-gi-6rh"/>
+                            <constraint firstItem="2b4-hh-LeW" firstAttribute="top" secondItem="GA1-Ip-NqW" secondAttribute="bottom" constant="8" id="eWW-VI-ooz"/>
+                            <constraint firstItem="Att-cT-9AW" firstAttribute="top" secondItem="2b4-hh-LeW" secondAttribute="bottom" constant="8" id="ips-Uy-Vyz"/>
+                            <constraint firstItem="tUz-w0-9Ef" firstAttribute="top" secondItem="Att-cT-9AW" secondAttribute="bottom" constant="8" id="ocw-Mc-mdU"/>
+                            <constraint firstItem="tUz-w0-9Ef" firstAttribute="leading" secondItem="otx-xz-0Ab" secondAttribute="leadingMargin" constant="20" id="rMl-Dd-5WA"/>
+                            <constraint firstItem="Att-cT-9AW" firstAttribute="leading" secondItem="otx-xz-0Ab" secondAttribute="leadingMargin" constant="20" id="wim-jy-uAk"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ageGenderLabel" destination="Att-cT-9AW" id="NgY-za-X7z"/>
+                        <outlet property="hobbiesTextView" destination="des-Rn-kcB" id="eEV-wq-QOK"/>
+                        <outlet property="nameLabel" destination="2b4-hh-LeW" id="B3W-79-qSu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DyU-K8-aBy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

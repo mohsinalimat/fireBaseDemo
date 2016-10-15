@@ -6,13 +6,16 @@
 //  Copyright © 2016 Vince Smithers. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "ProfileDetailViewController.h"
 
-@interface DetailViewController ()
+@interface ProfileDetailViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ageGenderLabel;
+@property (weak, nonatomic) IBOutlet UITextView *hobbiesTextView;
 
 @end
 
-@implementation DetailViewController
+@implementation ProfileDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,5 +36,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)editHobbies:(id)sender {
+    NSLog(@"test");
+}
 
 @end
