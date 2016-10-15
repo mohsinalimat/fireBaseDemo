@@ -14,6 +14,9 @@
 		0B7646FD1DB1AFC4003D5304 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B7646FC1DB1AFC4003D5304 /* Assets.xcassets */; };
 		0B7647001DB1AFC4003D5304 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B7646FE1DB1AFC4003D5304 /* LaunchScreen.storyboard */; };
 		0B76470B1DB1AFC4003D5304 /* SocialtopiasDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B76470A1DB1AFC4003D5304 /* SocialtopiasDemoTests.m */; };
+		0B7647191DB1B1D4003D5304 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B7647181DB1B1D4003D5304 /* GoogleService-Info.plist */; };
+		0B76471A1DB1B1D4003D5304 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B7647181DB1B1D4003D5304 /* GoogleService-Info.plist */; };
+		67469762E0442C85C0F3FDBA /* Pods_SocialtopiasDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0751F7096C36AB2EDDC13 /* Pods_SocialtopiasDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,10 @@
 		0B7647061DB1AFC4003D5304 /* SocialtopiasDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialtopiasDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B76470A1DB1AFC4003D5304 /* SocialtopiasDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialtopiasDemoTests.m; sourceTree = "<group>"; };
 		0B76470C1DB1AFC4003D5304 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B7647181DB1B1D4003D5304 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		23A4F66E3657915F86C155FB /* Pods-SocialtopiasDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialtopiasDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialtopiasDemo/Pods-SocialtopiasDemo.release.xcconfig"; sourceTree = "<group>"; };
+		744DC885B1A273786C7988E2 /* Pods-SocialtopiasDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialtopiasDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialtopiasDemo/Pods-SocialtopiasDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		CAD0751F7096C36AB2EDDC13 /* Pods_SocialtopiasDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialtopiasDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67469762E0442C85C0F3FDBA /* Pods_SocialtopiasDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +74,8 @@
 				0B7646EF1DB1AFC4003D5304 /* SocialtopiasDemo */,
 				0B7647091DB1AFC4003D5304 /* SocialtopiasDemoTests */,
 				0B7646EE1DB1AFC4003D5304 /* Products */,
+				C9013263F56168494059C1E8 /* Pods */,
+				4E71BC419D9C77A786EFB3B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +123,7 @@
 				0B7646F31DB1AFC4003D5304 /* AppDelegate.h */,
 				0B7646F41DB1AFC4003D5304 /* AppDelegate.m */,
 				0B7647011DB1AFC4003D5304 /* Info.plist */,
+				0B7647181DB1B1D4003D5304 /* GoogleService-Info.plist */,
 			);
 			name = AppGlobal;
 			sourceTree = "<group>";
@@ -135,6 +146,23 @@
 			name = Storyboard;
 			sourceTree = "<group>";
 		};
+		4E71BC419D9C77A786EFB3B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CAD0751F7096C36AB2EDDC13 /* Pods_SocialtopiasDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9013263F56168494059C1E8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				744DC885B1A273786C7988E2 /* Pods-SocialtopiasDemo.debug.xcconfig */,
+				23A4F66E3657915F86C155FB /* Pods-SocialtopiasDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,9 +170,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B76470F1DB1AFC4003D5304 /* Build configuration list for PBXNativeTarget "SocialtopiasDemo" */;
 			buildPhases = (
+				85B0EC493BEFFD6CB25C6AC3 /* [CP] Check Pods Manifest.lock */,
 				0B7646E91DB1AFC4003D5304 /* Sources */,
 				0B7646EA1DB1AFC4003D5304 /* Frameworks */,
 				0B7646EB1DB1AFC4003D5304 /* Resources */,
+				6866254CC026A8832357FDCA /* [CP] Embed Pods Frameworks */,
+				2C4A7E6C0D4495EC7DAB67FB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -218,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B7647001DB1AFC4003D5304 /* LaunchScreen.storyboard in Resources */,
+				0B7647191DB1B1D4003D5304 /* GoogleService-Info.plist in Resources */,
 				0B7646FD1DB1AFC4003D5304 /* Assets.xcassets in Resources */,
 				0B7646FB1DB1AFC4003D5304 /* Main.storyboard in Resources */,
 			);
@@ -227,10 +259,59 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B76471A1DB1B1D4003D5304 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C4A7E6C0D4495EC7DAB67FB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialtopiasDemo/Pods-SocialtopiasDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6866254CC026A8832357FDCA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialtopiasDemo/Pods-SocialtopiasDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85B0EC493BEFFD6CB25C6AC3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0B7646E91DB1AFC4003D5304 /* Sources */ = {
@@ -373,6 +454,7 @@
 		};
 		0B7647101DB1AFC4003D5304 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 744DC885B1A273786C7988E2 /* Pods-SocialtopiasDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SocialtopiasDemo/Info.plist;
@@ -384,6 +466,7 @@
 		};
 		0B7647111DB1AFC4003D5304 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23A4F66E3657915F86C155FB /* Pods-SocialtopiasDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SocialtopiasDemo/Info.plist;
@@ -436,6 +519,7 @@
 				0B7647111DB1AFC4003D5304 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0B7647121DB1AFC4003D5304 /* Build configuration list for PBXNativeTarget "SocialtopiasDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +528,7 @@
 				0B7647141DB1AFC4003D5304 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
