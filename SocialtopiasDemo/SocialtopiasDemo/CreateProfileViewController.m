@@ -9,6 +9,10 @@
 #import "CreateProfileViewController.h"
 
 @interface CreateProfileViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextfield;
+@property (weak, nonatomic) IBOutlet UITextField *ageTextfield;
+@property (weak, nonatomic) IBOutlet UITextField *hobbiesTextfield;
 
 @end
 
@@ -33,5 +37,16 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)dismiss:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+- (IBAction)addImage:(id)sender {
+}
+- (IBAction)genderSegmentController:(id)sender {
+    NSLog(@"gender");
+}
+- (IBAction)enter:(id)sender {
+    NSLog(@"enter");
+}
 
 @end
