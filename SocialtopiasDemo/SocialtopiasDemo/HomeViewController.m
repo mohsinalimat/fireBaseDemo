@@ -58,6 +58,10 @@ BOOL showFilterOptions = NO;
     [self performSegueWithIdentifier:@"showDetail" sender:self];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
+}
+
 - (IBAction)showFilterOptions:(id)sender {
     if (showFilterOptions == NO){
         [self setFilterSelected];
