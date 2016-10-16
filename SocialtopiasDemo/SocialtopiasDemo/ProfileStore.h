@@ -20,6 +20,6 @@
 -(NSMutableArray*)getProfilesFromFirebase;
 
 -(void)addProfile:(Profile*)profile;
--(void)removeProfileForID:(int)iD;
+-(void)removeProfileForID:(NSNumber*)iD;
 
 @end

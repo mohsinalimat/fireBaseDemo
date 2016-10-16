@@ -11,7 +11,7 @@
 @implementation Profile
 
 
--(instancetype)initWithName: (NSString*)name iD:(int)iD isFemale:(BOOL)isFemale age:(int)age profileImage:(UIImage*)profileImage hobbies:(NSString*)hobbies{
+-(instancetype)initWithName: (NSString*)name iD:(NSNumber*)iD isFemale:(BOOL)isFemale age:(NSNumber*)age profileImage:(UIImage*)profileImage hobbies:(NSString*)hobbies{
     
     if (self == [super init]){
         self.name = name;

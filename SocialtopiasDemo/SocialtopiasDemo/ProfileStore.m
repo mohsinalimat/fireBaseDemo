@@ -31,7 +31,7 @@
 -(void)addProfile:(Profile*)profile{
     [_store addObject:profile];
 }
--(void)removeProfileForID:(int)iD{
+-(void)removeProfileForID:(NSNumber*)iD{
     NSUInteger index = 0;
     for (Profile* profile in _store){
         index += 1;

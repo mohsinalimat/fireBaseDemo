@@ -15,6 +15,7 @@
 @property(strong, nonatomic) FIRDatabaseReference* databaseReference;
 
 -(instancetype)initWithDatabaseReference:(FIRDatabaseReference*)reference;
+
 -(void)postProfile:(Profile*)profile;
 
 @end

@@ -35,13 +35,13 @@ BOOL showFilterOptions = NO;
 }
 
 -(void)setUp{
-    UIImage *image = [[UIImage alloc]initWithContentsOfFile:@"Test"];
-    Profile *example = [[Profile alloc]initWithName:@"Joe Smith" iD:12 isFemale:YES age:28 profileImage:image hobbies:@"Some Hobbies"];
-    
+    UIImage *image = [UIImage imageNamed:@"turtles"];
+    Profile *example = [[Profile alloc]initWithName:@"Joe Smith" iD:@12 isFemale:YES age:@28 profileImage:image hobbies:@"Some Hobbies"];
+    self.ref = [[FIRDatabase database] reference];
     PostProile *post = [[PostProile alloc]initWithDatabaseReference:_ref];
-//    [post postProfile:example];
-    [[_ref childByAutoId]setValue:@"testing"];
-
+    [post postProfile:example];
+//    [[_ref childByAutoId]setValue:@"testingljl;lkj"];
+//    [[[[_ref child:@"Profiles"] child:@"test"] child:@"username"] setValue:@"txxxx"];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 10;
