@@ -14,23 +14,23 @@
     
     if (self = [super init]){
         self.databaseReference = reference;
-        self.store = [self getProfilesFromFirebase];
+        [self getProfilesFromFirebase];
     }
     return self;
 }
 
--(NSMutableArray*)getProfilesFromFirebase{
+-(void)getProfilesFromFirebase{
     NSMutableArray *store = [[NSMutableArray alloc]init];
-    [_databaseReference observeEventType: FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        id value = snapshot.value;
+    [_databaseReference observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSMutableDictionary* value = snapshot.value;
         NSLog(@"%@", value);
     }];
-    return store;
 }
 
 -(void)addProfile:(Profile*)profile{
     [_store addObject:profile];
 }
+
 -(void)removeProfileForID:(NSNumber*)iD{
     NSUInteger index = 0;
     for (Profile* profile in _store){

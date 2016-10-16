@@ -17,7 +17,7 @@
 
 -(instancetype)initWithDatabaseReference:(FIRDatabaseReference*)reference;
 
--(NSMutableArray*)getProfilesFromFirebase;
+-(void)getProfilesFromFirebase;
 
 -(void)addProfile:(Profile*)profile;
 -(void)removeProfileForID:(NSNumber*)iD;

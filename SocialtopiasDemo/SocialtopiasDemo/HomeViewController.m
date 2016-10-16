@@ -8,14 +8,18 @@
 
 #import "HomeViewController.h"
 #import "Profile.h"
+#import "ProfileStore.h"
 #import "PostProile.h"
 @import Firebase;
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *filterView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTopContraint;
 @property (strong, nonatomic) FIRDatabaseReference *ref;
+
+@property (strong, nonatomic) ProfileStore* datasource;
 
 @end
 
@@ -26,12 +30,20 @@ BOOL showFilterOptions = NO;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setFilterNotSelected];
+    [self setUpProfileStore];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)setUpProfileStore{
+    self.datasource = [[ProfileStore alloc]initWithDatabaseReference:self.ref];
+    
+    NSLog(@"%luxxxxxxxxxxxxxxxx", (unsigned long)_datasource.store.count);
+    
 }
 
 -(void)setUp{
