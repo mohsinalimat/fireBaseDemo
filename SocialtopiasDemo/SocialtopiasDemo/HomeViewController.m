@@ -25,7 +25,6 @@
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @property (strong, nonatomic) ProfileStore *datasource;
 @property (strong, nonatomic) NSMutableArray *dataS;
-
 @property (strong, nonatomic) Profile *selectedProfile;
 
 @end
@@ -170,22 +169,22 @@ BOOL isEditing = NO;
 - (IBAction)showFilterOptions:(id)sender {
     if (showFilterOptions == NO){
         [self setFilterSelected];
-        showFilterOptions = YES;
         [self setUp];
     }else{
         [self setFilterNotSelected];
-        showFilterOptions = NO;
     }
 }
 
 -(void)setFilterSelected{
     _filterView.hidden = NO;
-    _tableViewTopContraint.constant = 120.0;
+    _tableViewTopContraint.constant = 170.0;
+     showFilterOptions = YES;
 }
 
 -(void)setFilterNotSelected{
     _filterView.hidden = YES;
     _tableViewTopContraint.constant = 0;
+    showFilterOptions = NO;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -212,6 +211,32 @@ BOOL isEditing = NO;
         destinationViewController.iD = newProfileID;
     }
 }
+- (IBAction)sortByWomen:(id)sender {
+    [self setFilterNotSelected];
+}
 
+- (IBAction)sortByMen:(id)sender {
+    [self setFilterNotSelected];
+}
+
+- (IBAction)sortByAgeAscending:(id)sender {
+    [self setFilterNotSelected];
+}
+
+- (IBAction)sortByAgeDescending:(id)sender {
+    [self setFilterNotSelected];
+}
+
+- (IBAction)sortByNameAscending:(id)sender {
+    [self setFilterNotSelected];
+}
+
+- (IBAction)sortByNameDescending:(id)sender {
+    [self setFilterNotSelected];
+}
+
+- (IBAction)clearFilter:(id)sender {
+    [self setFilterNotSelected];
+}
 
 @end

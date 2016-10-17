@@ -23,15 +23,25 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s0s-hc-PPk">
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjl-yA-7rz">
-                                        <color key="backgroundColor" red="0.56830685907847345" green="0.64477836813030454" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.0086556947769520498" blue="0.83894358726296359" alpha="0.72410789695945943" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Dwl-bH-tvx"/>
                                         </constraints>
-                                        <state key="normal" title="Sort By Women"/>
+                                        <state key="normal" title="Sort By Women">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sortByWomen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ihY-dl-Zth"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Say-mx-R2f">
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Sort By Men"/>
+                                        <state key="normal" title="Sort By Men">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sortByMen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L5G-hD-deY"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLg-hT-por">
                                         <constraints>
@@ -42,36 +52,98 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKQ-n3-ZKD">
-                                        <color key="backgroundColor" red="1" green="0.65923298606911007" blue="0.86259989083966671" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="AA4-16-y4D"/>
+                                            <constraint firstAttribute="height" constant="20" id="lOR-bX-aDJ"/>
                                         </constraints>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Ascending"/>
+                                        <connections>
+                                            <action selector="sortByAgeAscending:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uzM-wL-QY4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nw7-gy-evc">
-                                        <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="fns-2O-zMX"/>
                                             <constraint firstAttribute="width" constant="100" id="viv-JG-mYp"/>
                                         </constraints>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Descending"/>
+                                        <connections>
+                                            <action selector="sortByAgeDescending:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xNQ-fp-HpP"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="482-gz-npL">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="V8p-rG-6pe"/>
+                                            <constraint firstAttribute="height" constant="30" id="XqB-BG-LPk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjD-tB-zZk">
+                                        <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="L7p-8T-WQL"/>
+                                            <constraint firstAttribute="width" constant="100" id="osL-2k-bNM"/>
+                                        </constraints>
+                                        <state key="normal" title="Ascending">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sortByNameAscending:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p7J-X2-QcB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cz-td-oTq">
+                                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="UtY-NA-VQI"/>
+                                            <constraint firstAttribute="width" constant="100" id="yvt-ha-1td"/>
+                                        </constraints>
+                                        <state key="normal" title="Descending">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sortByNameDescending:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GVi-Xv-B5c"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7S5-AL-28W">
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Clear Filter">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clearFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xqR-jP-bqH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.56133386216757786" green="0.78243371212121204" blue="0.78158362355596611" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Say-mx-R2f" firstAttribute="top" secondItem="Mjl-yA-7rz" secondAttribute="bottom" id="42e-WI-DBU"/>
+                                    <constraint firstItem="Say-mx-R2f" firstAttribute="top" secondItem="Mjl-yA-7rz" secondAttribute="bottom" constant="8" id="42e-WI-DBU"/>
+                                    <constraint firstAttribute="trailing" secondItem="7S5-AL-28W" secondAttribute="trailing" id="4ks-gB-5DB"/>
                                     <constraint firstItem="YLg-hT-por" firstAttribute="leading" secondItem="s0s-hc-PPk" secondAttribute="leading" constant="20" id="5PA-P1-siF"/>
-                                    <constraint firstAttribute="trailing" secondItem="Say-mx-R2f" secondAttribute="trailing" constant="20" id="GGO-L5-OXJ"/>
-                                    <constraint firstItem="YLg-hT-por" firstAttribute="top" secondItem="Say-mx-R2f" secondAttribute="bottom" id="Id3-eD-PeJ"/>
-                                    <constraint firstItem="DKQ-n3-ZKD" firstAttribute="leading" secondItem="YLg-hT-por" secondAttribute="trailing" constant="14" id="P5W-SX-J7E"/>
+                                    <constraint firstItem="7S5-AL-28W" firstAttribute="top" secondItem="IjD-tB-zZk" secondAttribute="bottom" constant="8" id="ADa-QE-Xfr"/>
+                                    <constraint firstItem="IjD-tB-zZk" firstAttribute="leading" secondItem="482-gz-npL" secondAttribute="trailing" constant="8" id="B8e-P3-czw"/>
+                                    <constraint firstItem="7S5-AL-28W" firstAttribute="leading" secondItem="s0s-hc-PPk" secondAttribute="leading" id="DZe-Yx-9QJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Say-mx-R2f" secondAttribute="trailing" id="GGO-L5-OXJ"/>
+                                    <constraint firstItem="YLg-hT-por" firstAttribute="top" secondItem="Say-mx-R2f" secondAttribute="bottom" constant="2" id="Id3-eD-PeJ"/>
+                                    <constraint firstItem="482-gz-npL" firstAttribute="top" secondItem="YLg-hT-por" secondAttribute="bottom" id="Id5-X8-SXa"/>
+                                    <constraint firstItem="DKQ-n3-ZKD" firstAttribute="leading" secondItem="YLg-hT-por" secondAttribute="trailing" constant="8" id="P5W-SX-J7E"/>
                                     <constraint firstItem="nw7-gy-evc" firstAttribute="centerY" secondItem="DKQ-n3-ZKD" secondAttribute="centerY" id="SVr-rB-zvh"/>
-                                    <constraint firstItem="Mjl-yA-7rz" firstAttribute="top" secondItem="s0s-hc-PPk" secondAttribute="top" id="W5L-hN-2c3"/>
-                                    <constraint firstAttribute="height" constant="100" id="X1D-of-LPw"/>
+                                    <constraint firstItem="7S5-AL-28W" firstAttribute="centerX" secondItem="s0s-hc-PPk" secondAttribute="centerX" id="TcO-hF-1SU"/>
+                                    <constraint firstItem="Mjl-yA-7rz" firstAttribute="top" secondItem="s0s-hc-PPk" secondAttribute="top" constant="8" id="W5L-hN-2c3"/>
+                                    <constraint firstAttribute="height" constant="150" id="X1D-of-LPw"/>
+                                    <constraint firstItem="IjD-tB-zZk" firstAttribute="centerY" secondItem="482-gz-npL" secondAttribute="centerY" id="XEQ-Me-nL6"/>
+                                    <constraint firstItem="8cz-td-oTq" firstAttribute="leading" secondItem="IjD-tB-zZk" secondAttribute="trailing" constant="8" id="ebk-r6-K2V"/>
                                     <constraint firstAttribute="trailing" secondItem="Mjl-yA-7rz" secondAttribute="trailing" id="hZ3-42-lx1"/>
+                                    <constraint firstItem="482-gz-npL" firstAttribute="leading" secondItem="s0s-hc-PPk" secondAttribute="leading" constant="20" id="laE-Aw-4Gi"/>
                                     <constraint firstItem="DKQ-n3-ZKD" firstAttribute="centerY" secondItem="YLg-hT-por" secondAttribute="centerY" id="mzL-4M-MSe"/>
-                                    <constraint firstItem="nw7-gy-evc" firstAttribute="leading" secondItem="DKQ-n3-ZKD" secondAttribute="trailing" constant="33" id="smI-yo-LfJ"/>
+                                    <constraint firstItem="nw7-gy-evc" firstAttribute="leading" secondItem="DKQ-n3-ZKD" secondAttribute="trailing" constant="8" id="smI-yo-LfJ"/>
                                     <constraint firstItem="Mjl-yA-7rz" firstAttribute="leading" secondItem="s0s-hc-PPk" secondAttribute="leading" id="veS-uj-gKa"/>
+                                    <constraint firstItem="8cz-td-oTq" firstAttribute="centerY" secondItem="IjD-tB-zZk" secondAttribute="centerY" id="yKw-16-0av"/>
                                     <constraint firstItem="Say-mx-R2f" firstAttribute="leading" secondItem="s0s-hc-PPk" secondAttribute="leading" id="zs9-cY-dkd"/>
                                 </constraints>
                             </view>
