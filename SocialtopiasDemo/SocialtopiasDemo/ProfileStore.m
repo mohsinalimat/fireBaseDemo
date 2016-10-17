@@ -21,7 +21,7 @@
 
 -(void)getProfilesFromFirebase{
     [_databaseReference observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        NSMutableDictionary* value = snapshot.value;
+//        NSMutableDictionary* value = snapshot.value;
 //        NSLog(@"%@ snap%@", value, snapshot);
     }];
 }

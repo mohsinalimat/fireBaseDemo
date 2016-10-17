@@ -7,10 +7,12 @@
 //
 
 #import "HomeViewController.h"
+#import "UIColor+UIColorCategory.h"
 #import "Profile.h"
 #import "ProfileStore.h"
 #import "PostProfile.h"
 #import "ProileFilter.h"
+#import "RemoveProfile.h"
 #import "HomeTableViewCell.h"
 #import "ProfileDetailViewController.h"
 #import "CreateProfileViewController.h"
@@ -50,6 +52,13 @@ BOOL isEditing = NO;
     // Dispose of any resources that can be recreated.
 }
 
+
+
+-(void)setUp{
+    self.ref = [[FIRDatabase database] reference];
+}
+
+
 -(void)setUpProfileStore{
     self.dataS = [[NSMutableArray alloc]init];
     
@@ -62,13 +71,16 @@ BOOL isEditing = NO;
         }
         
         id object = value[@"Profiles"];
-   
+
         if([object isKindOfClass:[NSArray class]]){
             for (id item in object) {
-                if (item) {
-                    NSDictionary *imageData = item[@"profileImage"];
+                if ([item isKindOfClass:[NSDictionary class]]) {
+
+                    NSDictionary *profileDictionary = item[@"info"];
+                    NSDictionary *imageData = profileDictionary[@"profileImage"];
                     UIImage *profileImage = [Profile setImageForProfile:imageData[@"image"]];
-                    Profile *newProfile = [[Profile alloc]initWithName:item[@"name"] iD:item[@"id"] isMale:item[@"gender"] age:item[@"age"] profileImage:profileImage hobbies:item[@"hobbies"]];
+                    
+                    Profile *newProfile = [[Profile alloc]initWithName:profileDictionary[@"name"] iD:profileDictionary[@"id"] isMale:profileDictionary[@"gender"] age:profileDictionary[@"age"] profileImage:profileImage hobbies:profileDictionary[@"hobbies"]];
                     [self.dataS addObject:newProfile];
                 }
             }
@@ -78,12 +90,7 @@ BOOL isEditing = NO;
     }];
 }
 
-
-
--(void)setUp{
-    self.ref = [[FIRDatabase database] reference];
-}
-
+//-(void)clearDatasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataS.count;
@@ -94,25 +101,12 @@ BOOL isEditing = NO;
     HomeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"profileIdentifier"];
 
     Profile *currentPath = [_dataS objectAtIndex:indexPath.row];
-    cell.backgroundColor = [self setColorForGender:currentPath.isMale];
+    cell.backgroundColor = [self setCellColorForGender:currentPath.isMale];
     
     cell.nameLabel.text = [NSString stringWithFormat:@"%@, %@", currentPath.name, currentPath.age];
     cell.homeCellImageView.image = currentPath.profileImage;
     cell.hobbiesLabel.text = [NSString stringWithFormat:@"Hobbies: %@", currentPath.hobbies];
     return cell;
-}
-
-- (UIColor*)setColorForGender:(NSNumber*)gender{
-    if ([gender  isEqual: @1]) {
-        return  [UIColor blueColor];
-    }else{
-        return [self getPinkColor];
-    }
-}
-
--(UIColor*)getPinkColor{
-    UIColor *pink = [[UIColor alloc]initWithRed: 255/255 green:200 / 255 blue:203 / 255 alpha:0.5];
-    return  pink;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -131,19 +125,27 @@ BOOL isEditing = NO;
         [self.tableView setEditing:NO animated:YES];
         
         Profile *profileToDelete = [_dataS objectAtIndex:indexPath.row];
-        NSString *formattedID = [NSString stringWithFormat:@"%@", profileToDelete.iD];
         
         [self.dataS removeObjectAtIndex:indexPath.row];
        
-        NSLog(@"id %@", formattedID);
-        [[[self.ref child:@"Profiles"] child:formattedID] setValue: @"toast : toast"];
-//        [self.ref updateChildValues:@{formattedPath : self.hobbiesTextfield.text}];
-//        [[[self.ref child:@"Profiles"] child:formattedID] setValue:post];
+        RemoveProfile *removeProfile = [[RemoveProfile alloc]initWithDatabaseReference:self.ref profile:profileToDelete];
+        [removeProfile removePost];
+        
+        isEditing = NO;
         [tableView reloadData];
     }
 }
 
+- (UIColor*)setCellColorForGender:(NSNumber*)gender{
+    if ([gender  isEqual: @1]) {
+        return  [UIColor blueColor];
+    }else{
+        return [UIColor PinkColor];
+    }
+}
+
 - (IBAction)edit:(id)sender {
+    
     if (isEditing == YES) {
         [self.tableView setEditing:NO animated:YES];
         isEditing = NO;
@@ -154,6 +156,7 @@ BOOL isEditing = NO;
 }
 
 - (IBAction)showFilterOptions:(id)sender {
+    
     if (showFilterOptions == NO){
         [self setFilterSelected];
         [self setUp];
@@ -187,17 +190,18 @@ BOOL isEditing = NO;
         destinationViewController.ref = self.ref;
         Profile *lastProfile = self.dataS.lastObject;
         
-        NSNumber *lastProfileID = lastProfile.iD;
-        int intValue = [lastProfileID intValue];
-        NSNumber *newProfileID = [NSNumber numberWithInt:intValue + 1];
+        NSNumber *newProfileID = [Profile incrementProfileID:lastProfile.iD];
         
         if (self.dataS.count == 0) {
             newProfileID = @0;
         }
-
         destinationViewController.iD = newProfileID;
     }
 }
+
+
+#pragma mark - sort actions
+
 - (IBAction)sortByWomen:(id)sender {
     self.profileFilter.datasource = self.dataS;
     self.dataS = [self.profileFilter sortByFemale];

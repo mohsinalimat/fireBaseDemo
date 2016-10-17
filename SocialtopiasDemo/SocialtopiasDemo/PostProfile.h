@@ -19,4 +19,6 @@
 
 -(void)postProfileWithID:(NSNumber*)iD;
 
++ (NSNumber*)formatAgeForPost:(NSString*)text;
+
 @end

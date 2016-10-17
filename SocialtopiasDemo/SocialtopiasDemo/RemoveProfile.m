@@ -10,4 +10,11 @@
 
 @implementation RemoveProfile
 
+-(void)removePost{
+    NSString *formattedID = [NSString stringWithFormat:@"%@", self.profile.iD];
+    NSString *formattedPath = [NSString stringWithFormat:@"/%@/info", formattedID];
+
+    [[[self.databaseReference child:@"Profiles"] child:formattedPath]removeValue];
+}
+
 @end

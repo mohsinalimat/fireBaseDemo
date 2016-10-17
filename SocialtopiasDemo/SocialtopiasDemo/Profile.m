@@ -24,6 +24,8 @@
     return self;
 }
 
+
+
 +(UIImage*)setImageForProfile:(NSString*)imageData{
     
     NSData* data = [[NSData alloc]initWithBase64EncodedString:imageData options:NSDataBase64DecodingIgnoreUnknownCharacters];
@@ -31,5 +33,30 @@
     
     return image;
 }
+
++(NSString*)getGender:(NSNumber*)gender{
+    if ([gender isEqual:@0]) {
+        return @"Female";
+    }else{
+        return @"Male";
+    }
+}
+
++ (UIImage*)setImageBasedOnGender:(NSNumber*)gender{
+    
+    if ([gender  isEqual: @0]) {
+        return [UIImage imageNamed:@"woman"];
+    }else{
+        return [UIImage imageNamed:@"man"];
+    }
+    
+}
+
++ (NSNumber*)incrementProfileID:(NSNumber*)iD{
+    int intValue = [iD intValue];
+    NSNumber *newProfileID = [NSNumber numberWithInt:intValue + 1];
+    return newProfileID;
+}
+
 
 @end

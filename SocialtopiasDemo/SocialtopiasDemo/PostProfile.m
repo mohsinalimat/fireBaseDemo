@@ -33,12 +33,17 @@
     
     [post setValue:imageDict forKey:@"profileImage"];
     NSString *formattedID = [NSString stringWithFormat:@"%@", iD];
-    [[[_databaseReference child:@"Profiles"] child:formattedID] setValue:post];
+    [[[_databaseReference child:@"Profiles"] child:formattedID] setValue:@{@"info":post}];
+}
++ (NSNumber*)formatAgeForPost:(NSString*)text{
+    
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+    return [numberFormatter numberFromString:text];
 }
 
 -(NSString*)setImageForPost:(UIImage*)image{
     return [UIImagePNGRepresentation(image) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-
 }
 
 @end
