@@ -7,15 +7,9 @@
 //
 
 #import "HomeTableViewCell.h"
-#import "Profile.h"
+
 
 @interface HomeTableViewCell ()
-
-@property (weak, nonatomic) IBOutlet UIImageView *cellImageView;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *hobbyLabel;
-
-@property (strong, nonatomic) Profile* profile;
 
 @end
 

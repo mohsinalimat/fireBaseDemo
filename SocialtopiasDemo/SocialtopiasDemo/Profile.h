@@ -13,11 +13,11 @@
 
 @property (strong, nonatomic)NSString *name;
 @property (nonatomic)NSNumber* iD;
-@property (nonatomic)BOOL isFemale;
+@property (nonatomic)NSNumber* isMale;
 @property (nonatomic)NSNumber* age;
 @property (strong, nonatomic)UIImage *profileImage;
 @property (strong, nonatomic)NSString *hobbies;
 
--(instancetype)initWithName: (NSString*)name iD:(NSNumber*)iD isFemale:(BOOL)isFemale age:(NSNumber*)age profileImage:(UIImage*)profileImage hobbies:(NSString*)hobbies;
+-(instancetype)initWithName: (NSString*)name iD:(NSNumber*)iD isMale:(NSNumber*)isMale age:(NSNumber*)age profileImage:(UIImage*)profileImage hobbies:(NSString*)hobbies;
 
 @end

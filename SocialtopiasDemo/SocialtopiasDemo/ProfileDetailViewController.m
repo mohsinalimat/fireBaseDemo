@@ -9,9 +9,20 @@
 #import "ProfileDetailViewController.h"
 
 @interface ProfileDetailViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ageGenderLabel;
-@property (weak, nonatomic) IBOutlet UITextView *hobbiesTextView;
+@property (weak, nonatomic) IBOutlet UITextField *hobbiesTextfield;
+
+@property (weak, nonatomic) IBOutlet UILabel *hobbiesLabel;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *hobbiesLabelTopConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
+
+@property BOOL isEditing;
 
 @end
 
@@ -19,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpForSelectedProfile];
     // Do any additional setup after loading the view.
 }
 
@@ -27,17 +39,60 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+-(void)setUpForSelectedProfile{
+    self.nameLabel.text = self.selectedProfile.name;
+    
+    NSString *gender = [self getGender:self.selectedProfile.isMale];
+    self.ageGenderLabel.text = [NSString stringWithFormat:@"%@ %@", self.selectedProfile.age, gender];
+    self.hobbiesLabel.text = self.selectedProfile.hobbies;
+    
+    [self setLayoutForNotEditing];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    self.hobbiesLabelTopConstraint.constant = 8;
 }
-*/
+
+-(NSString*)getGender:(NSNumber*)gender{
+    if ([gender isEqual:@0]) {
+        return @"Female";
+    }else{
+        return @"Male";
+    }
+}
+
+-(void)setLayoutForNotEditing{
+    self.hobbiesTextfield.hidden = YES;
+    self.hobbiesLabel.hidden = NO;
+    self.hobbiesLabelTopConstraint.constant = 8;
+    self.saveButton.hidden = YES;
+    [self.editButton setTitle:@"Edit" forState:UIControlStateNormal];
+    [_hobbiesTextfield resignFirstResponder];
+    self.isEditing = YES;
+}
+
+-(void)setLayoutForEditing{
+    self.hobbiesLabelTopConstraint.constant = 120;
+    self.hobbiesTextfield.hidden = NO;
+    self.hobbiesLabel.hidden = YES;
+    self.saveButton.hidden = NO;
+    [self.editButton setTitle:@"Cancel" forState:UIControlStateNormal];
+
+    self.isEditing = NO;
+}
 - (IBAction)editHobbies:(id)sender {
-    NSLog(@"test");
+
+    if (self.isEditing == true){
+        [self setLayoutForEditing];
+    }else{
+        [self setLayoutForNotEditing];
+    }
+}
+- (IBAction)save:(id)sender {
+    NSString *formattedID = [NSString stringWithFormat:@"%@", self.selectedProfile.iD];
+    NSString *formattedPath = [NSString stringWithFormat:@"/Profiles/%@/hobbies", formattedID];
+
+    [self.ref updateChildValues:@{formattedPath : self.hobbiesTextfield.text}];
+    [self setLayoutForNotEditing];
+    [_hobbiesTextfield resignFirstResponder];
 }
 
 @end

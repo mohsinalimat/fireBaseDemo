@@ -20,10 +20,9 @@
 }
 
 -(void)getProfilesFromFirebase{
-    NSMutableArray *store = [[NSMutableArray alloc]init];
     [_databaseReference observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSMutableDictionary* value = snapshot.value;
-        NSLog(@"%@", value);
+//        NSLog(@"%@ snap%@", value, snapshot);
     }];
 }
 

@@ -20,7 +20,7 @@
 		0B7647201DB1C548003D5304 /* ProfileDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B76471F1DB1C548003D5304 /* ProfileDetailViewController.m */; };
 		0B7647261DB1C7BD003D5304 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7647251DB1C7BD003D5304 /* Profile.m */; };
 		0B7647291DB27A73003D5304 /* ProfileStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7647281DB27A73003D5304 /* ProfileStore.m */; };
-		0B76472C1DB2821B003D5304 /* PostProile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B76472B1DB2821B003D5304 /* PostProile.m */; };
+		0B76472C1DB2821B003D5304 /* PostProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B76472B1DB2821B003D5304 /* PostProfile.m */; };
 		0B7647661DB337CE003D5304 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7647651DB337CE003D5304 /* HomeTableViewCell.m */; };
 		67469762E0442C85C0F3FDBA /* Pods_SocialtopiasDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0751F7096C36AB2EDDC13 /* Pods_SocialtopiasDemo.framework */; };
 /* End PBXBuildFile section */
@@ -58,8 +58,8 @@
 		0B7647251DB1C7BD003D5304 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 		0B7647271DB27A73003D5304 /* ProfileStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileStore.h; sourceTree = "<group>"; };
 		0B7647281DB27A73003D5304 /* ProfileStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileStore.m; sourceTree = "<group>"; };
-		0B76472A1DB2821B003D5304 /* PostProile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostProile.h; sourceTree = "<group>"; };
-		0B76472B1DB2821B003D5304 /* PostProile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostProile.m; sourceTree = "<group>"; };
+		0B76472A1DB2821B003D5304 /* PostProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostProfile.h; sourceTree = "<group>"; };
+		0B76472B1DB2821B003D5304 /* PostProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostProfile.m; sourceTree = "<group>"; };
 		0B76472D1DB2E32E003D5304 /* SocialtopiasDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SocialtopiasDemo.entitlements; sourceTree = "<group>"; };
 		0B7647641DB337CE003D5304 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		0B7647651DB337CE003D5304 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
@@ -179,8 +179,8 @@
 				0B7647251DB1C7BD003D5304 /* Profile.m */,
 				0B7647271DB27A73003D5304 /* ProfileStore.h */,
 				0B7647281DB27A73003D5304 /* ProfileStore.m */,
-				0B76472A1DB2821B003D5304 /* PostProile.h */,
-				0B76472B1DB2821B003D5304 /* PostProile.m */,
+				0B76472A1DB2821B003D5304 /* PostProfile.h */,
+				0B76472B1DB2821B003D5304 /* PostProfile.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -372,7 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B76472C1DB2821B003D5304 /* PostProile.m in Sources */,
+				0B76472C1DB2821B003D5304 /* PostProfile.m in Sources */,
 				0B7647201DB1C548003D5304 /* ProfileDetailViewController.m in Sources */,
 				0B76471D1DB1C34B003D5304 /* CreateProfileViewController.m in Sources */,
 				0B7646F81DB1AFC4003D5304 /* HomeViewController.m in Sources */,

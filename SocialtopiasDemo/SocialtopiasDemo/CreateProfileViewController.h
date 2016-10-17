@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PostProfile.h"
 
 @interface CreateProfileViewController : UIViewController
+
+@property (strong, nonatomic) FIRDatabaseReference *ref;
+@property (strong, nonatomic) NSNumber *iD;
 
 @end

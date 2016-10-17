@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Profile.h"
 
 @interface HomeTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *homeCellImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *hobbiesLabel;
+
 
 @end

@@ -10,12 +10,13 @@
 @import Firebase;
 #import "Profile.h"
 
-@interface PostProile : NSObject
+@interface PostProfile : NSObject
 
 @property(strong, nonatomic) FIRDatabaseReference* databaseReference;
+@property(strong, nonatomic) Profile* profile;
 
--(instancetype)initWithDatabaseReference:(FIRDatabaseReference*)reference;
+-(instancetype)initWithDatabaseReference:(FIRDatabaseReference*)reference profile:(Profile*)profile;
 
--(void)postProfile:(Profile*)profile;
+-(void)postProfileWithID:(NSNumber*)iD;
 
 @end
