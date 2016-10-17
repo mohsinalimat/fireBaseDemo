@@ -22,6 +22,7 @@
 		0B7647291DB27A73003D5304 /* ProfileStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7647281DB27A73003D5304 /* ProfileStore.m */; };
 		0B76472C1DB2821B003D5304 /* PostProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B76472B1DB2821B003D5304 /* PostProfile.m */; };
 		0B7647661DB337CE003D5304 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7647651DB337CE003D5304 /* HomeTableViewCell.m */; };
+		0B7647691DB4E1FC003D5304 /* ProileFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7647681DB4E1FC003D5304 /* ProileFilter.m */; };
 		67469762E0442C85C0F3FDBA /* Pods_SocialtopiasDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0751F7096C36AB2EDDC13 /* Pods_SocialtopiasDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,8 @@
 		0B76472D1DB2E32E003D5304 /* SocialtopiasDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SocialtopiasDemo.entitlements; sourceTree = "<group>"; };
 		0B7647641DB337CE003D5304 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		0B7647651DB337CE003D5304 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
+		0B7647671DB4E1FC003D5304 /* ProileFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProileFilter.h; sourceTree = "<group>"; };
+		0B7647681DB4E1FC003D5304 /* ProileFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProileFilter.m; sourceTree = "<group>"; };
 		23A4F66E3657915F86C155FB /* Pods-SocialtopiasDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialtopiasDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialtopiasDemo/Pods-SocialtopiasDemo.release.xcconfig"; sourceTree = "<group>"; };
 		744DC885B1A273786C7988E2 /* Pods-SocialtopiasDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialtopiasDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialtopiasDemo/Pods-SocialtopiasDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		CAD0751F7096C36AB2EDDC13 /* Pods_SocialtopiasDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialtopiasDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +184,8 @@
 				0B7647281DB27A73003D5304 /* ProfileStore.m */,
 				0B76472A1DB2821B003D5304 /* PostProfile.h */,
 				0B76472B1DB2821B003D5304 /* PostProfile.m */,
+				0B7647671DB4E1FC003D5304 /* ProileFilter.h */,
+				0B7647681DB4E1FC003D5304 /* ProileFilter.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 			files = (
 				0B76472C1DB2821B003D5304 /* PostProfile.m in Sources */,
 				0B7647201DB1C548003D5304 /* ProfileDetailViewController.m in Sources */,
+				0B7647691DB4E1FC003D5304 /* ProileFilter.m in Sources */,
 				0B76471D1DB1C34B003D5304 /* CreateProfileViewController.m in Sources */,
 				0B7646F81DB1AFC4003D5304 /* HomeViewController.m in Sources */,
 				0B7647261DB1C7BD003D5304 /* Profile.m in Sources */,

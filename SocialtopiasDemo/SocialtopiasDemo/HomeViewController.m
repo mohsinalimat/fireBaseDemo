@@ -10,6 +10,7 @@
 #import "Profile.h"
 #import "ProfileStore.h"
 #import "PostProfile.h"
+#import "ProileFilter.h"
 #import "HomeTableViewCell.h"
 #import "ProfileDetailViewController.h"
 #import "CreateProfileViewController.h"
@@ -26,6 +27,7 @@
 @property (strong, nonatomic) ProfileStore *datasource;
 @property (strong, nonatomic) NSMutableArray *dataS;
 @property (strong, nonatomic) Profile *selectedProfile;
+@property (strong, nonatomic) ProileFilter *profileFilter;
 
 @end
 
@@ -70,6 +72,7 @@ BOOL isEditing = NO;
             }
         }
         [self.tableView reloadData];
+        self.profileFilter.originaldatasource = self.dataS;
     }];
     
 }
@@ -83,6 +86,8 @@ BOOL isEditing = NO;
 
 -(void)setUp{
     self.ref = [[FIRDatabase database] reference];
+    self.profileFilter = [[ProileFilter alloc]initWithDatasource:self.dataS];
+
 }
 
 
@@ -152,6 +157,7 @@ BOOL isEditing = NO;
         
         [tableView reloadData];
 
+        
     }
     
 }
@@ -212,30 +218,52 @@ BOOL isEditing = NO;
     }
 }
 - (IBAction)sortByWomen:(id)sender {
+    self.profileFilter.datasource = self.dataS;
+    self.dataS = [self.profileFilter sortByFemale];
+    [self.tableView reloadData];
     [self setFilterNotSelected];
 }
 
 - (IBAction)sortByMen:(id)sender {
+    self.profileFilter.datasource = self.dataS;
+    self.dataS = [self.profileFilter sortByMale];
+    [self.tableView reloadData];
     [self setFilterNotSelected];
 }
 
 - (IBAction)sortByAgeAscending:(id)sender {
+    self.profileFilter.datasource = self.dataS;
+    self.dataS = [self.profileFilter sortByAgeAscending];
+    [self.tableView reloadData];
     [self setFilterNotSelected];
 }
 
 - (IBAction)sortByAgeDescending:(id)sender {
+    self.profileFilter.datasource = self.dataS;
+    self.dataS = [self.profileFilter sortByAgeDescending];
+    [self.tableView reloadData];
     [self setFilterNotSelected];
 }
 
 - (IBAction)sortByNameAscending:(id)sender {
+    self.profileFilter.datasource = self.dataS;
+    self.dataS = [self.profileFilter sortByNameAscending];
+    [self.tableView reloadData];
     [self setFilterNotSelected];
 }
 
 - (IBAction)sortByNameDescending:(id)sender {
+    self.profileFilter.datasource = self.dataS;
+    self.dataS = [self.profileFilter sortByNameDescending];
+    [self.tableView reloadData];
     [self setFilterNotSelected];
 }
 
 - (IBAction)clearFilter:(id)sender {
+    self.profileFilter.datasource = self.dataS;
+    self.dataS = [self.profileFilter clearFilter];
+    [self.tableView reloadData];
+    //FETCH
     [self setFilterNotSelected];
 }
 
