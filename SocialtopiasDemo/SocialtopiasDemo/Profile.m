@@ -24,4 +24,12 @@
     return self;
 }
 
++(UIImage*)setImageForProfile:(NSString*)imageData{
+    
+    NSData* data = [[NSData alloc]initWithBase64EncodedString:imageData options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    UIImage* image = [UIImage imageWithData:data];
+    
+    return image;
+}
+
 @end

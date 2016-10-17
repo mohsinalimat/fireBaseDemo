@@ -27,6 +27,7 @@
 @property (strong, nonatomic) ProfileStore *datasource;
 @property (strong, nonatomic) NSMutableArray *dataS;
 @property (strong, nonatomic) Profile *selectedProfile;
+
 @property (strong, nonatomic) ProileFilter *profileFilter;
 
 @end
@@ -44,11 +45,6 @@ BOOL isEditing = NO;
     // Do any additional setup after loading the view, typically from a nib.
 }
 
--(void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:YES];
-//    [self.dataS removeAllObjects];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -59,45 +55,35 @@ BOOL isEditing = NO;
     
     [_ref observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         NSMutableDictionary* value = snapshot.value;
+        
+        //clear for fresh
+        if (self.dataS.count != 0) {
+            [self.dataS removeAllObjects];
+        }
+        
         id object = value[@"Profiles"];
    
         if([object isKindOfClass:[NSArray class]]){
             for (id item in object) {
                 if (item) {
                     NSDictionary *imageData = item[@"profileImage"];
-                    UIImage *profileImage = [self setImageForPost:imageData[@"image"]];
+                    UIImage *profileImage = [Profile setImageForProfile:imageData[@"image"]];
                     Profile *newProfile = [[Profile alloc]initWithName:item[@"name"] iD:item[@"id"] isMale:item[@"gender"] age:item[@"age"] profileImage:profileImage hobbies:item[@"hobbies"]];
                     [self.dataS addObject:newProfile];
                 }
             }
         }
         [self.tableView reloadData];
-        self.profileFilter.originaldatasource = self.dataS;
+        self.profileFilter = [[ProileFilter alloc]initWithDatasource:self.dataS];
     }];
-    
 }
 
--(UIImage*)setImageForPost:(NSString*)imageData{
-    NSData* data = [[NSData alloc] initWithBase64EncodedString:imageData options:0];
-    UIImage* image = [UIImage imageWithData:data];
 
-    return image;
-}
 
 -(void)setUp{
     self.ref = [[FIRDatabase database] reference];
-    self.profileFilter = [[ProileFilter alloc]initWithDatasource:self.dataS];
-
 }
 
-
--(NSString*)getGender:(NSNumber*)gender{
-    if ([gender isEqual:@0]) {
-        return @"Female";
-    }else{
-        return @"Male";
-    }
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataS.count;
@@ -110,10 +96,9 @@ BOOL isEditing = NO;
     Profile *currentPath = [_dataS objectAtIndex:indexPath.row];
     cell.backgroundColor = [self setColorForGender:currentPath.isMale];
     
-    NSString *formattedGender = [self getGender:currentPath.isMale];
-    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@ %@", currentPath.name, currentPath.age, formattedGender];
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@, %@", currentPath.name, currentPath.age];
     cell.homeCellImageView.image = currentPath.profileImage;
-    cell.hobbiesLabel.text = [NSString stringWithFormat:@"Hobbies %@", currentPath.hobbies];
+    cell.hobbiesLabel.text = [NSString stringWithFormat:@"Hobbies: %@", currentPath.hobbies];
     return cell;
 }
 
@@ -151,15 +136,11 @@ BOOL isEditing = NO;
         [self.dataS removeObjectAtIndex:indexPath.row];
        
         NSLog(@"id %@", formattedID);
-//        [[[self.ref child:@"Profiles"] child:formattedID]removeValue];
+        [[[self.ref child:@"Profiles"] child:formattedID] setValue: @"toast : toast"];
 //        [self.ref updateChildValues:@{formattedPath : self.hobbiesTextfield.text}];
 //        [[[self.ref child:@"Profiles"] child:formattedID] setValue:post];
-        
         [tableView reloadData];
-
-        
     }
-    
 }
 
 - (IBAction)edit:(id)sender {
@@ -213,7 +194,7 @@ BOOL isEditing = NO;
         if (self.dataS.count == 0) {
             newProfileID = @0;
         }
-        NSLog(@"idxxxx %@", newProfileID);
+
         destinationViewController.iD = newProfileID;
     }
 }
@@ -260,11 +241,12 @@ BOOL isEditing = NO;
 }
 
 - (IBAction)clearFilter:(id)sender {
-    self.profileFilter.datasource = self.dataS;
     self.dataS = [self.profileFilter clearFilter];
     [self.tableView reloadData];
-    //FETCH
+
     [self setFilterNotSelected];
 }
+
+
 
 @end

@@ -19,5 +19,6 @@
 @property (strong, nonatomic)NSString *hobbies;
 
 -(instancetype)initWithName: (NSString*)name iD:(NSNumber*)iD isMale:(NSNumber*)isMale age:(NSNumber*)age profileImage:(UIImage*)profileImage hobbies:(NSString*)hobbies;
++(UIImage*)setImageForProfile:(NSString*)imageData;
 
 @end

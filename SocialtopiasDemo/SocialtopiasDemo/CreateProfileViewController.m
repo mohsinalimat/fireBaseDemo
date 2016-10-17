@@ -10,12 +10,13 @@
 #import "PostProfile.h"
 
 
-@interface CreateProfileViewController ()<UIImagePickerControllerDelegate>
+@interface CreateProfileViewController ()<UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *ageTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *hobbiesTextfield;
+@property (weak, nonatomic) IBOutlet UIButton *enterButton;
 
 @property (strong, nonatomic) UIImagePickerController* imagePickerController;
 
@@ -27,8 +28,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.nameTextfield.delegate = self;
+    self.ageTextfield.delegate = self;
+    self.hobbiesTextfield.delegate = self;
 //    self.imagePickerController.delegate = self;
     // Do any additional setup after loading the view.
+    self.enterButton.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +50,27 @@
     // Pass the selected object to the new view controller.
 }
 */
+-(BOOL)checkForValidNameField{
+    if ([self.nameTextfield.text length] < 1 || [self.nameTextfield.text length] > 50) {
+        return NO;
+    }
+    return YES;
+}
+
+-(BOOL)checkForValidAgeField{
+    int intValue = [self.ageTextfield.text intValue];
+    if (intValue < 120 || intValue > 0) {
+        return YES;
+    }
+    return NO;
+}
+
+-(BOOL)checkForValidHobbiesField{
+    if ([self.hobbiesTextfield.text length] < 1 || [self.nameTextfield.text length] > 200) {
+        return NO;
+    }
+    return YES;
+}
 - (IBAction)dismiss:(id)sender {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
@@ -57,6 +83,24 @@
 - (IBAction)enter:(id)sender {
     [self post];
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
+{
+    
+    [textField resignFirstResponder];
+    return YES;
+    
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    if ([self checkForValidNameField] == YES && [self checkForValidAgeField] == YES && [self checkForValidHobbiesField] == YES) {
+        self.enterButton.hidden = NO;
+    }else{
+        self.enterButton.hidden = YES;
+    }
+    return YES;
 }
 
 -(void)post{

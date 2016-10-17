@@ -14,7 +14,7 @@
 -(instancetype)initWithDatasource:(NSMutableArray*)datasource{
     if (self = [super init]) {
         self.datasource = datasource;
-        self.originaldatasource = datasource;
+        self.originaldatasource = [datasource copy];
     }
     return self;
 }

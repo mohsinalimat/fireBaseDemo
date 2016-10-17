@@ -45,6 +45,7 @@
     NSString *gender = [self getGender:self.selectedProfile.isMale];
     self.ageGenderLabel.text = [NSString stringWithFormat:@"%@ %@", self.selectedProfile.age, gender];
     self.hobbiesLabel.text = self.selectedProfile.hobbies;
+    self.profileImageView.image = self.selectedProfile.profileImage;
     
     [self setLayoutForNotEditing];
 
@@ -92,6 +93,7 @@
 
     [self.ref updateChildValues:@{formattedPath : self.hobbiesTextfield.text}];
     [self setLayoutForNotEditing];
+    self.hobbiesLabel.text = self.hobbiesTextfield.text;
     [_hobbiesTextfield resignFirstResponder];
 }
 
