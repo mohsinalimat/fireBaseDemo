@@ -33,7 +33,6 @@
 }
 
 + (NSString*)getGender:(NSNumber*)gender{
-    
     if ([gender isEqual:@0]) {
         return @"Female";
     }else{
@@ -42,7 +41,6 @@
 }
 
 + (UIImage*)setImageBasedOnGender:(NSNumber*)gender{
-    
     if ([gender  isEqual: @0]) {
         return [UIImage imageNamed:@"woman"];
     }else{

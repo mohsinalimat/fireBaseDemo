@@ -11,7 +11,7 @@
 @implementation UIColor (UIColorCategory)
 
 + (UIColor*)PinkColor{
-    UIColor *pink = [[UIColor alloc]initWithRed: 255/255 green:200 / 255 blue:203 / 255 alpha:0.5];
+    UIColor *pink = [[UIColor alloc]initWithRed: 255/255 green: 200/255 blue: 203/255 alpha:0.5];
     return  pink;
 }
 

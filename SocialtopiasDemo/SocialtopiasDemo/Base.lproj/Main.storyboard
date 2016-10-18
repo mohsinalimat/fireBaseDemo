@@ -166,15 +166,15 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zt0-RD-bs1">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="19"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtm-ue-eUf">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtm-ue-eUf">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="Mt4-tg-h1F"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -182,7 +182,7 @@
                                             <constraints>
                                                 <constraint firstItem="Zt0-RD-bs1" firstAttribute="leading" secondItem="oEq-qv-ELa" secondAttribute="trailing" constant="8" id="1GY-fK-22S"/>
                                                 <constraint firstItem="oEq-qv-ELa" firstAttribute="leading" secondItem="e4q-BJ-0Jc" secondAttribute="leadingMargin" id="4gi-ZT-oxl"/>
-                                                <constraint firstItem="qtm-ue-eUf" firstAttribute="top" secondItem="Zt0-RD-bs1" secondAttribute="bottom" constant="8" id="G6q-kd-JjJ"/>
+                                                <constraint firstItem="qtm-ue-eUf" firstAttribute="top" secondItem="Zt0-RD-bs1" secondAttribute="bottom" id="G6q-kd-JjJ"/>
                                                 <constraint firstItem="oEq-qv-ELa" firstAttribute="top" secondItem="e4q-BJ-0Jc" secondAttribute="topMargin" id="aLg-R1-ccz"/>
                                                 <constraint firstItem="qtm-ue-eUf" firstAttribute="leading" secondItem="oEq-qv-ELa" secondAttribute="trailing" constant="8" id="nq2-QP-9qX"/>
                                             </constraints>

@@ -30,7 +30,7 @@
     self.nameTextfield.delegate = self;
     self.ageTextfield.delegate = self;
     self.hobbiesTextfield.delegate = self;
-    // Do any additional setup after loading the view.
+    self.currentGender = @0;
     self.enterButton.hidden = YES;
 }
 
@@ -93,7 +93,6 @@
 #pragma mark - Post
 
 - (void)post{
-    
     UIImage *profileImage = [Profile setImageBasedOnGender:self.currentGender];
     
     Profile *profile = [[Profile alloc]initWithName:self.nameTextfield.text iD:self.iD isMale:self.currentGender age:[PostProfile formatAgeForPost:self.ageTextfield.text] profileImage: profileImage hobbies:self.hobbiesTextfield.text];

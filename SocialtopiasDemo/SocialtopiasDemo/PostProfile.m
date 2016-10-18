@@ -18,7 +18,6 @@
     return self;
 }
 
-
 - (void)postProfileWithID:(NSNumber*)iD;{
     
     NSMutableDictionary* post = [[NSMutableDictionary alloc]init];
@@ -27,7 +26,7 @@
     
     [post setValue:self.profile.name forKey:@"name"];
     [post setValue:iD forKey:@"id"];
-    [post setValue:[NSNumber numberWithBool:self.profile.isMale] forKey:@"gender"];
+    [post setValue:self.profile.isMale forKey:@"gender"];
     [post setValue:self.profile.age forKey:@"age"];
     [post setValue:self.profile.hobbies forKey:@"hobbies"];
     [post setValue:[self setImageDictionary] forKey:@"profileImage"];

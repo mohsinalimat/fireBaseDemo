@@ -122,9 +122,10 @@ BOOL isEditing = NO;
 - (UIColor*)setCellColorForGender:(NSNumber*)gender{
     if ([gender  isEqual: @1]) {
         return  [UIColor blueColor];
-    }else{
+    }else if ([gender isEqual: @0]){
         return [UIColor PinkColor];
     }
+    return [UIColor blackColor];
 }
 
 #pragma mark - toggle filter and editing options
