@@ -15,9 +15,9 @@
 @property(strong, nonatomic) FIRDatabaseReference* databaseReference;
 @property(strong, nonatomic) Profile* profile;
 
--(instancetype)initWithDatabaseReference:(FIRDatabaseReference*)reference profile:(Profile*)profile;
+- (instancetype)initWithDatabaseReference:(FIRDatabaseReference*)reference profile:(Profile*)profile;
 
--(void)postProfileWithID:(NSNumber*)iD;
+- (void)postProfileWithID:(NSNumber*)iD;
 
 + (NSNumber*)formatAgeForPost:(NSString*)text;
 

@@ -11,6 +11,6 @@
 
 @interface RemoveProfile : PostProfile
 
--(void)removePost;
+- (void)removePost;
 
 @end

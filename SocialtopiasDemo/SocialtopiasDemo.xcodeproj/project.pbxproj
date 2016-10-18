@@ -22,7 +22,7 @@
 		0B7647291DB27A73003D5304 /* ProfileStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7647281DB27A73003D5304 /* ProfileStore.m */; };
 		0B76472C1DB2821B003D5304 /* PostProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B76472B1DB2821B003D5304 /* PostProfile.m */; };
 		0B7647661DB337CE003D5304 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7647651DB337CE003D5304 /* HomeTableViewCell.m */; };
-		0B7647691DB4E1FC003D5304 /* ProileFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7647681DB4E1FC003D5304 /* ProileFilter.m */; };
+		0B7647691DB4E1FC003D5304 /* ProfileFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7647681DB4E1FC003D5304 /* ProfileFilter.m */; };
 		0B76476C1DB58182003D5304 /* RemoveProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B76476B1DB58182003D5304 /* RemoveProfile.m */; };
 		0B7647701DB59823003D5304 /* UIColor+UIColorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B76476F1DB59823003D5304 /* UIColor+UIColorCategory.m */; };
 		67469762E0442C85C0F3FDBA /* Pods_SocialtopiasDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0751F7096C36AB2EDDC13 /* Pods_SocialtopiasDemo.framework */; };
@@ -66,8 +66,8 @@
 		0B76472D1DB2E32E003D5304 /* SocialtopiasDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SocialtopiasDemo.entitlements; sourceTree = "<group>"; };
 		0B7647641DB337CE003D5304 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		0B7647651DB337CE003D5304 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
-		0B7647671DB4E1FC003D5304 /* ProileFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProileFilter.h; sourceTree = "<group>"; };
-		0B7647681DB4E1FC003D5304 /* ProileFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProileFilter.m; sourceTree = "<group>"; };
+		0B7647671DB4E1FC003D5304 /* ProfileFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileFilter.h; sourceTree = "<group>"; };
+		0B7647681DB4E1FC003D5304 /* ProfileFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileFilter.m; sourceTree = "<group>"; };
 		0B76476A1DB58182003D5304 /* RemoveProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoveProfile.h; sourceTree = "<group>"; };
 		0B76476B1DB58182003D5304 /* RemoveProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoveProfile.m; sourceTree = "<group>"; };
 		0B76476E1DB59823003D5304 /* UIColor+UIColorCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColorCategory.h"; sourceTree = "<group>"; };
@@ -191,10 +191,10 @@
 				0B7647281DB27A73003D5304 /* ProfileStore.m */,
 				0B76472A1DB2821B003D5304 /* PostProfile.h */,
 				0B76472B1DB2821B003D5304 /* PostProfile.m */,
-				0B7647671DB4E1FC003D5304 /* ProileFilter.h */,
-				0B7647681DB4E1FC003D5304 /* ProileFilter.m */,
 				0B76476A1DB58182003D5304 /* RemoveProfile.h */,
 				0B76476B1DB58182003D5304 /* RemoveProfile.m */,
+				0B7647671DB4E1FC003D5304 /* ProfileFilter.h */,
+				0B7647681DB4E1FC003D5304 /* ProfileFilter.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -397,7 +397,7 @@
 			files = (
 				0B76472C1DB2821B003D5304 /* PostProfile.m in Sources */,
 				0B7647201DB1C548003D5304 /* ProfileDetailViewController.m in Sources */,
-				0B7647691DB4E1FC003D5304 /* ProileFilter.m in Sources */,
+				0B7647691DB4E1FC003D5304 /* ProfileFilter.m in Sources */,
 				0B76471D1DB1C34B003D5304 /* CreateProfileViewController.m in Sources */,
 				0B7646F81DB1AFC4003D5304 /* HomeViewController.m in Sources */,
 				0B7647261DB1C7BD003D5304 /* Profile.m in Sources */,

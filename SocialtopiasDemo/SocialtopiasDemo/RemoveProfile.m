@@ -10,7 +10,8 @@
 
 @implementation RemoveProfile
 
--(void)removePost{
+- (void)removePost{
+    
     NSString *formattedID = [NSString stringWithFormat:@"%@", self.profile.iD];
     NSString *formattedPath = [NSString stringWithFormat:@"/%@/info", formattedID];
 

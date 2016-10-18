@@ -10,32 +10,32 @@
 
 @implementation ProfileStore
 
--(instancetype)initWithDatabaseReference:(FIRDatabaseReference*)reference{
+- (instancetype)init{
     
-    if (self = [super init]){
-        self.databaseReference = reference;
-        [self getProfilesFromFirebase];
+    if (self == [super init]){
+        self.store = [[NSMutableArray alloc]init];
     }
     return self;
 }
 
--(void)getProfilesFromFirebase{
-    [_databaseReference observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-//        NSMutableDictionary* value = snapshot.value;
-//        NSLog(@"%@ snap%@", value, snapshot);
-    }];
-}
+- (void)createProfilesFromSnapShot:(NSMutableDictionary*)data{
 
--(void)addProfile:(Profile*)profile{
-    [_store addObject:profile];
-}
-
--(void)removeProfileForID:(NSNumber*)iD{
-    NSUInteger index = 0;
-    for (Profile* profile in _store){
-        index += 1;
-        if (profile.iD == iD) {
-            [_store removeObjectAtIndex:index];
+    id object = data[@"Profiles"];
+    
+    if([object isKindOfClass:[NSArray class]]){
+        
+        for (id item in object) {
+            
+            if ([item isKindOfClass:[NSDictionary class]]) {
+                
+                NSDictionary *profileDictionary = item[@"info"];
+                NSDictionary *imageData = profileDictionary[@"profileImage"];
+                UIImage *profileImage = [Profile setImageForProfile:imageData[@"image"]];
+                
+                Profile *newProfile = [[Profile alloc]initWithName:profileDictionary[@"name"] iD:profileDictionary[@"id"] isMale:profileDictionary[@"gender"] age:profileDictionary[@"age"] profileImage:profileImage hobbies:profileDictionary[@"hobbies"]];
+                
+                [self.store addObject:newProfile];
+            }
         }
     }
 }

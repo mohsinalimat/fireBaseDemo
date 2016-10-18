@@ -12,14 +12,10 @@
 
 @interface ProfileStore : NSObject
 
-@property(strong, nonatomic) FIRDatabaseReference* databaseReference;
 @property(strong, nonatomic) NSMutableArray* store;
 
--(instancetype)initWithDatabaseReference:(FIRDatabaseReference*)reference;
+- (instancetype)init;
 
--(void)getProfilesFromFirebase;
-
--(void)addProfile:(Profile*)profile;
--(void)removeProfileForID:(NSNumber*)iD;
+- (void)createProfilesFromSnapShot:(NSMutableDictionary*)data;
 
 @end

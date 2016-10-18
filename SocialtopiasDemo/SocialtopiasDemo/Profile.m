@@ -10,7 +10,7 @@
 
 @implementation Profile
 
--(instancetype)initWithName: (NSString*)name iD:(NSNumber*)iD isMale:(NSNumber*)isMale age:(NSNumber*)age profileImage:(UIImage*)profileImage hobbies:(NSString*)hobbies{
+- (instancetype)initWithName: (NSString*)name iD:(NSNumber*)iD isMale:(NSNumber*)isMale age:(NSNumber*)age profileImage:(UIImage*)profileImage hobbies:(NSString*)hobbies{
     
     if (self == [super init]){
         self.name = name;
@@ -24,9 +24,7 @@
     return self;
 }
 
-
-
-+(UIImage*)setImageForProfile:(NSString*)imageData{
++ (UIImage*)setImageForProfile:(NSString*)imageData{
     
     NSData* data = [[NSData alloc]initWithBase64EncodedString:imageData options:NSDataBase64DecodingIgnoreUnknownCharacters];
     UIImage* image = [UIImage imageWithData:data];
@@ -34,7 +32,8 @@
     return image;
 }
 
-+(NSString*)getGender:(NSNumber*)gender{
++ (NSString*)getGender:(NSNumber*)gender{
+    
     if ([gender isEqual:@0]) {
         return @"Female";
     }else{
@@ -49,14 +48,13 @@
     }else{
         return [UIImage imageNamed:@"man"];
     }
-    
 }
 
 + (NSNumber*)incrementProfileID:(NSNumber*)iD{
+    
     int intValue = [iD intValue];
     NSNumber *newProfileID = [NSNumber numberWithInt:intValue + 1];
     return newProfileID;
 }
-
 
 @end

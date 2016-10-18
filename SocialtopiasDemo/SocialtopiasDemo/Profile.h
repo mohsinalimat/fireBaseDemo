@@ -18,10 +18,10 @@
 @property (strong, nonatomic)UIImage *profileImage;
 @property (strong, nonatomic)NSString *hobbies;
 
--(instancetype)initWithName: (NSString*)name iD:(NSNumber*)iD isMale:(NSNumber*)isMale age:(NSNumber*)age profileImage:(UIImage*)profileImage hobbies:(NSString*)hobbies;
+- (instancetype)initWithName: (NSString*)name iD:(NSNumber*)iD isMale:(NSNumber*)isMale age:(NSNumber*)age profileImage:(UIImage*)profileImage hobbies:(NSString*)hobbies;
 
-+(UIImage*)setImageForProfile:(NSString*)imageData;
-+(NSString*)getGender:(NSNumber*)gender;
++ (UIImage*)setImageForProfile:(NSString*)imageData;
++ (NSString*)getGender:(NSNumber*)gender;
 + (UIImage*)setImageBasedOnGender:(NSNumber*)gender;
 + (NSNumber*)incrementProfileID:(NSNumber*)iD;
 

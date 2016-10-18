@@ -6,12 +6,12 @@
 //  Copyright © 2016 Vince Smithers. All rights reserved.
 //
 
-#import "ProileFilter.h"
+#import "ProfileFilter.h"
 #import "Profile.h"
 
-@implementation ProileFilter
+@implementation ProfileFilter
 
--(instancetype)initWithDatasource:(NSMutableArray*)datasource{
+- (instancetype)initWithDatasource:(NSMutableArray*)datasource{
     if (self = [super init]) {
         self.datasource = datasource;
         self.originaldatasource = [datasource copy];
@@ -19,7 +19,7 @@
     return self;
 }
 
--(NSMutableArray*)sortByMale{
+- (NSMutableArray*)sortByMale{
     NSMutableArray *filteredDatasouce = [[NSMutableArray alloc]init];
     for ( Profile *profile in self.datasource) {
         if ([profile.isMale isEqualToNumber:@1 ]) {
@@ -29,7 +29,7 @@
     return  filteredDatasouce;
 }
 
--(NSMutableArray*)sortByFemale{
+- (NSMutableArray*)sortByFemale{
     NSMutableArray *filteredDatasouce = [[NSMutableArray alloc]init];
     for ( Profile *profile in self.datasource) {
         if ([profile.isMale isEqualToNumber:@0 ]) {
@@ -39,7 +39,7 @@
     return  filteredDatasouce;
 }
 
--(NSMutableArray*)sortByAgeAscending{
+- (NSMutableArray*)sortByAgeAscending{
     NSSortDescriptor *sortDescriptor;
     sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"age"
                                                  ascending:YES];
@@ -50,7 +50,7 @@
     return filteredDatasource;
 }
 
--(NSMutableArray*)sortByAgeDescending{
+- (NSMutableArray*)sortByAgeDescending{
     NSSortDescriptor *sortDescriptor;
     sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"age"
                                                  ascending:NO];
@@ -61,7 +61,7 @@
     return filteredDatasource;
 }
 
--(NSMutableArray*)sortByNameAscending{
+- (NSMutableArray*)sortByNameAscending{
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
     
     NSArray *sortDescriptors = [NSMutableArray arrayWithObject:sortDescriptor];
@@ -71,7 +71,7 @@
     return filteredDatasource;
 }
 
--(NSMutableArray*)sortByNameDescending{
+- (NSMutableArray*)sortByNameDescending{
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO selector:@selector(caseInsensitiveCompare:)];
     
     NSArray *sortDescriptors = [NSMutableArray arrayWithObject:sortDescriptor];
@@ -81,7 +81,7 @@
     return filteredDatasource;
 }
 
--(NSMutableArray*)clearFilter{
+- (NSMutableArray*)clearFilter{
     return self.originaldatasource;
 }
 

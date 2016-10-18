@@ -11,7 +11,7 @@
 #import "Profile.h"
 #import "ProfileStore.h"
 #import "PostProfile.h"
-#import "ProileFilter.h"
+#import "ProfileFilter.h"
 #import "RemoveProfile.h"
 #import "HomeTableViewCell.h"
 #import "ProfileDetailViewController.h"
@@ -27,10 +27,8 @@
 
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @property (strong, nonatomic) ProfileStore *datasource;
-@property (strong, nonatomic) NSMutableArray *dataS;
 @property (strong, nonatomic) Profile *selectedProfile;
-
-@property (strong, nonatomic) ProileFilter *profileFilter;
+@property (strong, nonatomic) ProfileFilter *profileFilter;
 
 @end
 
@@ -47,70 +45,55 @@ BOOL isEditing = NO;
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - setup datasource with profiles from firebase
 
-
-
--(void)setUp{
+- (void)setUp{
     self.ref = [[FIRDatabase database] reference];
 }
 
-
--(void)setUpProfileStore{
-    self.dataS = [[NSMutableArray alloc]init];
+- (void)setUpProfileStore{
+    
+    self.datasource = [[ProfileStore alloc]init];
     
     [_ref observeEventType: FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
-        NSMutableDictionary* value = snapshot.value;
         
-        //clear for fresh
-        if (self.dataS.count != 0) {
-            [self.dataS removeAllObjects];
-        }
+        [self clearDatasource];
         
-        id object = value[@"Profiles"];
-
-        if([object isKindOfClass:[NSArray class]]){
-            for (id item in object) {
-                if ([item isKindOfClass:[NSDictionary class]]) {
-
-                    NSDictionary *profileDictionary = item[@"info"];
-                    NSDictionary *imageData = profileDictionary[@"profileImage"];
-                    UIImage *profileImage = [Profile setImageForProfile:imageData[@"image"]];
-                    
-                    Profile *newProfile = [[Profile alloc]initWithName:profileDictionary[@"name"] iD:profileDictionary[@"id"] isMale:profileDictionary[@"gender"] age:profileDictionary[@"age"] profileImage:profileImage hobbies:profileDictionary[@"hobbies"]];
-                    [self.dataS addObject:newProfile];
-                }
-            }
-        }
+        [self.datasource createProfilesFromSnapShot:snapshot.value];
+      
         [self.tableView reloadData];
-        self.profileFilter = [[ProileFilter alloc]initWithDatasource:self.dataS];
+        self.profileFilter = [[ProfileFilter alloc]initWithDatasource:self.datasource.store];
     }];
 }
 
-//-(void)clearDatasource
+- (void)clearDatasource{
+    if (self.datasource.store.count != 0) {
+        [self.datasource.store removeAllObjects];
+    }
+}
+
+#pragma mark - tableview delegate methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataS.count;
+    return self.datasource.store.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     HomeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"profileIdentifier"];
 
-    Profile *currentPath = [_dataS objectAtIndex:indexPath.row];
+    Profile *currentPath = [self.datasource.store objectAtIndex:indexPath.row];
     cell.backgroundColor = [self setCellColorForGender:currentPath.isMale];
     
     cell.nameLabel.text = [NSString stringWithFormat:@"%@, %@", currentPath.name, currentPath.age];
     cell.homeCellImageView.image = currentPath.profileImage;
     cell.hobbiesLabel.text = [NSString stringWithFormat:@"Hobbies: %@", currentPath.hobbies];
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    self.selectedProfile = [self.dataS objectAtIndex:indexPath.row];
+    self.selectedProfile = [self.datasource.store objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"showDetail" sender:self];
 }
 
@@ -118,15 +101,15 @@ BOOL isEditing = NO;
     return 80;
 }
 
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         [self.tableView setEditing:NO animated:YES];
         
-        Profile *profileToDelete = [_dataS objectAtIndex:indexPath.row];
+        Profile *profileToDelete = [self.datasource.store objectAtIndex:indexPath.row];
         
-        [self.dataS removeObjectAtIndex:indexPath.row];
+        [self.datasource.store removeObjectAtIndex:indexPath.row];
        
         RemoveProfile *removeProfile = [[RemoveProfile alloc]initWithDatabaseReference:self.ref profile:profileToDelete];
         [removeProfile removePost];
@@ -143,6 +126,8 @@ BOOL isEditing = NO;
         return [UIColor PinkColor];
     }
 }
+
+#pragma mark - toggle filter and editing options
 
 - (IBAction)edit:(id)sender {
     
@@ -165,19 +150,21 @@ BOOL isEditing = NO;
     }
 }
 
--(void)setFilterSelected{
+- (void)setFilterSelected{
     _filterView.hidden = NO;
     _tableViewTopContraint.constant = 170.0;
      showFilterOptions = YES;
 }
 
--(void)setFilterNotSelected{
+- (void)setFilterNotSelected{
     _filterView.hidden = YES;
     _tableViewTopContraint.constant = 0;
     showFilterOptions = NO;
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+#pragma mark - segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 
     if ([segue.identifier isEqualToString:@"showDetail"]) {
         ProfileDetailViewController *destinationViewController = segue.destinationViewController;
@@ -188,69 +175,71 @@ BOOL isEditing = NO;
     if ([segue.identifier isEqualToString:@"createProfile"]) {
         CreateProfileViewController *destinationViewController = segue.destinationViewController;
         destinationViewController.ref = self.ref;
-        Profile *lastProfile = self.dataS.lastObject;
+        Profile *lastProfile = self.datasource.store.lastObject;
         
         NSNumber *newProfileID = [Profile incrementProfileID:lastProfile.iD];
         
-        if (self.dataS.count == 0) {
+        if (self.datasource.store.count == 0) {
             newProfileID = @0;
         }
         destinationViewController.iD = newProfileID;
     }
 }
 
-
 #pragma mark - sort actions
 
 - (IBAction)sortByWomen:(id)sender {
-    self.profileFilter.datasource = self.dataS;
-    self.dataS = [self.profileFilter sortByFemale];
+    self.profileFilter.datasource = self.datasource.store;
+    self.datasource.store = [self.profileFilter sortByFemale];
     [self.tableView reloadData];
     [self setFilterNotSelected];
 }
 
 - (IBAction)sortByMen:(id)sender {
-    self.profileFilter.datasource = self.dataS;
-    self.dataS = [self.profileFilter sortByMale];
+    self.profileFilter.datasource = self.datasource.store;
+    self.datasource.store = [self.profileFilter sortByMale];
     [self.tableView reloadData];
     [self setFilterNotSelected];
 }
 
 - (IBAction)sortByAgeAscending:(id)sender {
-    self.profileFilter.datasource = self.dataS;
-    self.dataS = [self.profileFilter sortByAgeAscending];
+    self.profileFilter.datasource = self.datasource.store;
+    self.datasource.store = [self.profileFilter sortByAgeAscending];
     [self.tableView reloadData];
     [self setFilterNotSelected];
 }
 
 - (IBAction)sortByAgeDescending:(id)sender {
-    self.profileFilter.datasource = self.dataS;
-    self.dataS = [self.profileFilter sortByAgeDescending];
+    self.profileFilter.datasource = self.datasource.store;
+    self.datasource.store = [self.profileFilter sortByAgeDescending];
     [self.tableView reloadData];
     [self setFilterNotSelected];
 }
 
 - (IBAction)sortByNameAscending:(id)sender {
-    self.profileFilter.datasource = self.dataS;
-    self.dataS = [self.profileFilter sortByNameAscending];
+    self.profileFilter.datasource = self.datasource.store;
+    self.datasource.store = [self.profileFilter sortByNameAscending];
     [self.tableView reloadData];
     [self setFilterNotSelected];
 }
 
 - (IBAction)sortByNameDescending:(id)sender {
-    self.profileFilter.datasource = self.dataS;
-    self.dataS = [self.profileFilter sortByNameDescending];
+    self.profileFilter.datasource = self.datasource.store;
+    self.datasource.store = [self.profileFilter sortByNameDescending];
     [self.tableView reloadData];
     [self setFilterNotSelected];
 }
 
 - (IBAction)clearFilter:(id)sender {
-    self.dataS = [self.profileFilter clearFilter];
+    self.datasource.store = [self.profileFilter clearFilter];
     [self.tableView reloadData];
 
     [self setFilterNotSelected];
 }
 
-
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 @end
