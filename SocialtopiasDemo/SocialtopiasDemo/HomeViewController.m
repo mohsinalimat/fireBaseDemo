@@ -93,6 +93,7 @@ BOOL isEditing = NO;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     self.selectedProfile = [self.datasource.store objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"showDetail" sender:self];
 }
@@ -120,6 +121,7 @@ BOOL isEditing = NO;
 }
 
 - (UIColor*)setCellColorForGender:(NSNumber*)gender{
+    
     if ([gender  isEqual: @1]) {
         return  [UIColor blueColor];
     }else if ([gender isEqual: @0]){

@@ -37,7 +37,7 @@
 #pragma mark - textfield delegate methods
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
-    if ([self checkForValidNameField] == YES && [self checkForValidAgeField] == YES && [self checkForValidHobbiesField] == YES) {
+    if ([self checkForValidNameField] == YES && [self checkForValidAgeField] == YES){
         self.enterButton.hidden = NO;
     }else{
         self.enterButton.hidden = YES;
@@ -54,7 +54,7 @@
 #pragma mark - textfield validation
 
 - (BOOL)checkForValidNameField{
-    if ([self.nameTextfield.text length] < 1 || [self.nameTextfield.text length] > 50) {
+    if ([self.nameTextfield.text length] < 1 && [self.nameTextfield.text length] > 50) {
         return NO;
     }
     return YES;
@@ -62,17 +62,10 @@
 
 - (BOOL)checkForValidAgeField{
     int intValue = [self.ageTextfield.text intValue];
-    if (intValue < 120 || intValue > 0) {
+    if (intValue < 120 && intValue > 0) {
         return YES;
     }
     return NO;
-}
-
-- (BOOL)checkForValidHobbiesField{
-    if ([self.hobbiesTextfield.text length] < 1 || [self.nameTextfield.text length] > 200) {
-        return NO;
-    }
-    return YES;
 }
 
 #pragma mark - button actions
@@ -90,7 +83,7 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-#pragma mark - Post
+#pragma mark - post
 
 - (void)post{
     UIImage *profileImage = [Profile setImageBasedOnGender:self.currentGender];

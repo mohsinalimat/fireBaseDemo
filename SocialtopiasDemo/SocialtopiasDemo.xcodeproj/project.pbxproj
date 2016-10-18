@@ -25,6 +25,7 @@
 		0B7647691DB4E1FC003D5304 /* ProfileFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7647681DB4E1FC003D5304 /* ProfileFilter.m */; };
 		0B76476C1DB58182003D5304 /* RemoveProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B76476B1DB58182003D5304 /* RemoveProfile.m */; };
 		0B7647701DB59823003D5304 /* UIColor+UIColorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B76476F1DB59823003D5304 /* UIColor+UIColorCategory.m */; };
+		0B7647721DB5B5C0003D5304 /* ProfileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7647711DB5B5C0003D5304 /* ProfileTests.m */; };
 		67469762E0442C85C0F3FDBA /* Pods_SocialtopiasDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0751F7096C36AB2EDDC13 /* Pods_SocialtopiasDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		0B76476B1DB58182003D5304 /* RemoveProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoveProfile.m; sourceTree = "<group>"; };
 		0B76476E1DB59823003D5304 /* UIColor+UIColorCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColorCategory.h"; sourceTree = "<group>"; };
 		0B76476F1DB59823003D5304 /* UIColor+UIColorCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColorCategory.m"; sourceTree = "<group>"; };
+		0B7647711DB5B5C0003D5304 /* ProfileTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTests.m; sourceTree = "<group>"; };
 		23A4F66E3657915F86C155FB /* Pods-SocialtopiasDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialtopiasDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialtopiasDemo/Pods-SocialtopiasDemo.release.xcconfig"; sourceTree = "<group>"; };
 		744DC885B1A273786C7988E2 /* Pods-SocialtopiasDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialtopiasDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialtopiasDemo/Pods-SocialtopiasDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		CAD0751F7096C36AB2EDDC13 /* Pods_SocialtopiasDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialtopiasDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,7 @@
 			children = (
 				0B76470A1DB1AFC4003D5304 /* SocialtopiasDemoTests.m */,
 				0B76470C1DB1AFC4003D5304 /* Info.plist */,
+				0B7647711DB5B5C0003D5304 /* ProfileTests.m */,
 			);
 			path = SocialtopiasDemoTests;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B76470B1DB1AFC4003D5304 /* SocialtopiasDemoTests.m in Sources */,
+				0B7647721DB5B5C0003D5304 /* ProfileTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

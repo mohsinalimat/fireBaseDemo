@@ -424,11 +424,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TfM-PV-oyG">
-                                <color key="backgroundColor" red="0.96646068174466082" green="1" blue="0.96915622377982102" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="QkA-1t-jwb"/>
+                                    <constraint firstAttribute="width" constant="200" id="QkA-1t-jwb"/>
                                 </constraints>
-                                <state key="normal" title="Enter"/>
+                                <state key="normal" title="Create Profile">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="enter:" destination="Mkx-n2-M1A" eventType="touchUpInside" id="pGZ-Uq-dgZ"/>
                                 </connections>

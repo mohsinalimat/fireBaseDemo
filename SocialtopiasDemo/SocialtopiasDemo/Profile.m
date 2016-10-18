@@ -35,8 +35,10 @@
 + (NSString*)getGender:(NSNumber*)gender{
     if ([gender isEqual:@0]) {
         return @"Female";
-    }else{
+    }else if([gender isEqual:@1]){
         return @"Male";
+    }else{
+        return @"Other";
     }
 }
 
